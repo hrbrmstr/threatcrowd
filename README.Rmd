@@ -1,0 +1,67 @@
+---
+title: ""
+author: ""
+date: ""
+output:
+  html_document:
+    keep_md: true
+  md_document:
+    variant: markdown_github
+---
+
+`threatcrowd` an R pacakge to work with the [ThreatCrowd](https://github.com/threatcrowd/ApiV2) API
+
+The following functions are implemented:
+
+- `search_avs`:	Search anti-virus indicators
+- `search_domains`:	Search domain indicators
+- `search_email`:	Search e-mail indicators
+- `search_ips`:	Search IP indicators
+
+<hr/>
+NOTE: This requries `httr` >=1.0 (which should be in CRAN soon if not already there)
+<hr/>
+
+### News
+
+- Version 0.1.0.9000 initial release
+
+### Installation
+
+```{r eval=FALSE}
+devtools::install_github("hrbrmstr/threatcrowd")
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, error=FALSE}
+options(width=120)
+```
+
+### Usage
+
+```{r}
+library(threatcrowd)
+
+# current verison
+packageVersion("threatcrowd")
+
+search_email("william19770319@yahoo.com")
+
+search_domains("aoldaily.com")
+
+search_ips("188.40.75.132")
+
+search_avs("plugx")
+
+```
+
+### Test Results
+
+```{r}
+library(threatcrowd)
+library(testthat)
+
+date()
+
+test_dir("tests/")
+```
+
